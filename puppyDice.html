@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href ="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>puppy dice!</title>
+  </head>
+  <body>
+
+    <div class = "well">
+      <h1>let's play puppy dice!</h1>
+    </div>
+
+    <center><img src="http://heathersanimations.com/dogs4/d144.gif"><br><br><br>
+
+      <div id="result" class="row">
+        <div class="col-xs-6">
+          <p>Player 1: your score is <span class="player1score"></span></p>
+
+        <form id="rollDice" class="show_inline">
+            <button class="btn btn-info" type="submit">Roll Dice</button>
+        </form>
+      <br>
+        <form id="stop" class="show_inline">
+            <button class="btn btn-success" type="submit">Stop?</button>
+        </form>
+          <br>
+        </div>
+
+        <div class="col-xs-6">
+          <p>Player 2: your score is <span class="player2score"></span></p>
+
+        <form id="rollDice" class="show_inline">
+            <button class="btn btn-info" type="submit">Roll Dice</button>
+        </form>
+      <br>
+        <form id="stop" class="show_inline">
+            <button class="btn btn-success" type="submit">Stop?</button>
+        </form>
+          <br>
+        </div>
+      </div>
+
+      <span class="diceResult"></span>
+
+  </body>
+  </html>
