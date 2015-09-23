@@ -12,6 +12,8 @@ var turn = function(player) {
 
   if (diceResult === 1) {
     tempScore = 0;
+    alert("Boo! You lost your turn because you rolled a 1.");
+    return tempScore;
   } else {
     tempScore = tempScore + diceResult;
   }
@@ -38,8 +40,8 @@ $(document).ready(function() {
 
   $("form#rollDice1").submit(function(event) {
     var tempScore = turn(player1);
-    $(".p1tempScore").text(tempScore);
 
+    $(".p1tempScore").text(tempScore);
     $("#result").show();
 
     event.preventDefault();
