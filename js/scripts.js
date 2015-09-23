@@ -8,45 +8,51 @@ var diceRoll =  function() {
 
 var turn = function(player) {
   var tempScore = 0;
+  var diceResult = diceRoll();
 
-  diceRoll();
-  if (diceRoll === 1) {
+  if (diceResult === 1) {
     tempScore = 0;
-    playerTurn = false;
   } else {
-    tempScore = tempScore + diceRoll;
+    tempScore = tempScore + diceResult;
   }
 
   if (player === player1) {
     player1 += tempScore;
+    return player1;
   } else {
     player2 += tempScore;
+    return player2;
   }
+
 };
 
 $(document).ready(function() {
 
   var player1score = player1;
   var player2score = player2;
+  var p1tempScore = 0;
+  var p2tempScore = 0;
 
   $(".player1score").text(player1score);
   $(".player2score").text(player2score);
 
-  $("form#rollDice").submit(function(event) {
-    var diceResult = diceRoll();
-    $(".diceResult").text(diceResult);
+  $("form#rollDice1").submit(function(event) {
+    var tempScore = turn(player1);
+    $(".p1tempScore").text(tempScore);
 
     $("#result").show();
+
     event.preventDefault();
-
   });
+
+
+  $("form#rollDice2").submit(function(event) {
+    var tempScore = turn(player2);
+    $(".p2tempScore").text(tempScore);
+
+    $("#result").show();
+
+    event.preventDefault();
+  });
+
 });
-
-
-
-
-
-
-// var player1 = { tempScore: 0, totalScore: 0 };
-
-//
