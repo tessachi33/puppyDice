@@ -8,7 +8,7 @@ var diceRoll =  function() {
   return (Math.floor(Math.random() * 6 + 1));
 };
 
-var turn = function(player) {
+var turn = function() {
   var tempScore = 0;
   var diceResult = diceRoll();
 
@@ -23,15 +23,7 @@ var turn = function(player) {
     return tempScore;
   } else {
     tempScore = tempScore + diceResult;
-  }
-
-  if (player === player1) {
-    player1 += tempScore;
-    return player1;
-  } else {
-    player2 += tempScore;
-    return player2;
-  }
+  } return tempScore;
 
 };
 
@@ -44,22 +36,45 @@ $(document).ready(function() {
   $(".player2score").text(player2);
 
   $("form#rollDice1").submit(function(event) {
-    var tempScore = turn(player1);
+    var tempScore = turn();
 
     $(".p1tempScore").text(tempScore);
     $("#result").show();
 
     event.preventDefault();
+
+    $("form#stop1").submit(function(event) {
+
+      finalScore1 += tempScore;
+      tempScore = 0;
+
+      $(".player1score").text(finalScore1);
+      $("#result").show();
+
+      event.preventDefault();
+    });
+
   });
 
 
   $("form#rollDice2").submit(function(event) {
-    var tempScore = turn(player2);
+    var tempScore = turn();
     $(".p2tempScore").text(tempScore);
 
     $("#result").show();
 
     event.preventDefault();
+
+    $("form#stop2").submit(function(event) {
+
+      finalScore2 += tempScore;
+      tempScore = 0;
+
+      $(".player2score").text(finalScore2);
+      $("#result").show();
+
+      event.preventDefault();
+    });
   });
 
 });
