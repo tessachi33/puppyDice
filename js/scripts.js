@@ -1,12 +1,16 @@
-//global variables
+
 var player1 = 0;
 var player2 = 0;
 var finalScore1 = 0;
 var finalScore2 = 0;
 
+
 var diceRoll =  function() {
   return (Math.floor(Math.random() * 6 + 1));
 };
+
+//line 23 is the attempt to make the game stop and declare a winner
+//at 100 points. it's a work in progress :)
 
 var turn = function() {
   var tempScore = 0;
@@ -31,6 +35,10 @@ $(document).ready(function() {
 
   var p1tempScore = 0;
   var p2tempScore = 0;
+
+//the stop buttons don't know that "1" should empty your turn yet.
+//they'll still let you add the points from your turn.
+//that is a bug for now.
 
   $(".player1score").text(player1);
   $(".player2score").text(player2);
